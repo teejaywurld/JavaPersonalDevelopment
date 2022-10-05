@@ -3,16 +3,61 @@ package com.teejaywurld.main.JavaBasics.Arrays;
 import java.util.ArrayList;
 
 public class GroceryList {
-    private ArrayList<String> grocerylist = new ArrayList<String>();
+    private ArrayList<String> groceryList = new ArrayList<String>();
 
     public void addGroceryItem(String item){
-        grocerylist.add(item);
+        groceryList.add(item);
     }
-    
+
+    public ArrayList<String> getGroceryList() {
+        return groceryList;
+    }
+
+    // To print out the element
     public void printGroceryList(){
-        System.out.println("You have " + grocerylist.size() + " items in your grocery list");
-        for (int i = 0; i < grocerylist.size(); i++) {
-            System.out.println((i + 1) + ". " + grocerylist.get(i));
+        System.out.println("You have " + groceryList.size() + " items in your grocery list");
+        for (int i = 0; i < groceryList.size(); i++) {
+            System.out.println((i + 1) + ". " + groceryList.get(i));
         }
+    }
+
+    // // how to replace an item in an array list
+    public void modifyGroceryItem(String currentItem, String newItem){
+        int position = findItem(currentItem);
+        if (position >= 0){
+            modifyGroceryItem(position, newItem);
+        }
+    }
+
+    // how to replace an item in an array list
+    private void modifyGroceryItem(int position, String newItem){
+        groceryList.set(position, newItem);
+        System.out.println("Grocery item " + (position + 1) + " has been modified.");
+    }
+
+    // how to remove an item from an array list
+    public void removeGroceryItem(String item){
+        int position = findItem(item);
+        if (position >= 0){
+            removeGroceryItem(position);
+        }
+    }
+
+    // how to remove an item from an array list
+    private void removeGroceryItem(int position){
+        groceryList.remove(position);
+    }
+
+    // how to query an array list to find an item
+    private int findItem(String searchItem) {
+        return groceryList.indexOf(searchItem);
+    }
+
+    public boolean onFile(String searchItem){
+        int position = findItem(searchItem);
+        if (position >= 0){
+            return true;
+        }
+        return false;
     }
 }
