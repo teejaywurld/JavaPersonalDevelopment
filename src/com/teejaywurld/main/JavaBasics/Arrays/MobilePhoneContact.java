@@ -108,7 +108,6 @@ public class MobilePhoneContact {
 
         System.out.println("Name: " + existingContactRecord.getName() + " phone number is " + existingContactRecord.getPhoneNumber());
     }
-
     private static void startPhone(){
         System.out.println("Starting phone...");
     }
