@@ -11,7 +11,7 @@ public class Example {
             System.out.println(result);
         } catch (ArithmeticException | NoSuchElementException e){
             System.out.println(e.toString());
-            System.out.println("Unable to perform division, autopilot shutting down! **wink** **thumbs up** ");
+            System.out.println("Unable to perform division, autopilot shutting down!");
         }
     }
 
