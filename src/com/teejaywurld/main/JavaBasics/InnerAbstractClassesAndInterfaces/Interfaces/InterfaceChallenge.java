@@ -21,7 +21,16 @@ import java.util.Scanner;
 
 public class InterfaceChallenge {
     public static void main(String[] args) {
+        Player teejay = new Player("Teejay", 10, 15);
+        System.out.println(teejay.toString());
+        saveObject(teejay);
 
+        teejay.setHitPoints(9);
+        System.out.println(teejay);
+        teejay.setWeapon("Shakabula");
+        saveObject(teejay);
+        loadObject(teejay);
+        System.out.println(teejay);
     }
 
     public static ArrayList<String> readValues(){
@@ -52,5 +61,15 @@ public class InterfaceChallenge {
             }
         }
         return values;
+    }
+    public static void saveObject(ISavable objectToSave){
+        for (int i = 0; i < objectToSave.write().size(); i++) {
+            System.out.println("Saving " + objectToSave.write().get(i) + " to storage device...");
+        }
+    }
+
+    public static void loadObject(ISavable objectToLoad){
+        ArrayList<String> values = readValues();
+        objectToLoad.read(values);
     }
 }
